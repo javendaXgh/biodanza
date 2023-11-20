@@ -2,10 +2,51 @@
 title: "biodanza"
 ---
 
-This is a Quarto website.
+**Cualquier comentario o aporte a esta Biblioteca favor escribir al correo:**
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+[**escvb20\@gmail.com**](escvb20@gmail.com)
 
 ```{r}
-1 + 1
+#| echo: false
+#| warning: false
+
+library(DT)
+library(readxl)
+library(dplyr)
+datos <- readxl::read_xlsx('data/data_v1.xlsx')%>%
+  select(3:5,7:12,16)%>%
+  rename('link'=10)%>%
+  mutate(link=paste('<a href=',link, 'target="_blank">🔗</a>'))
+
+DT::datatable(datos,
+              escape = FALSE,
+              extensions = c('FixedHeader','Buttons'),
+              filter = list(position = 'top',
+                            clear = FALSE),
+              options = list(
+                searchHighlight = TRUE,
+                rownames= FALSE,
+                # fixedHeader = TRUE,
+                # dom = 'tB',
+                buttons = c('copy', 'csv', 'excel'),
+                scroller = TRUE,
+                lengthChange = FALSE,
+                language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json'),
+                pageLength = 5,
+                autoWidth = FALSE,
+                initComplete = JS(
+                  "function(settings, json) {",
+                  "$(this.api().table().header()).css({'background-color': '#6B91C7', 'color': 'white'});",
+                  "}")
+                # columnDefs = list(
+                #   # list(className = 'dt-center', targets = 5),
+                #   list(visible = FALSE, targets = c(9,10,11,12)),#
+                #   list(orderable = FALSE, className = 'details-control', targets = 1)
+                # )
+              )
+              )
+
+
 ```
+
+\
