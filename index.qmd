@@ -32,7 +32,7 @@ DT::datatable(datos,
                 scroller = TRUE,
                 lengthChange = FALSE,
                 language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json'),
-                pageLength = 5,
+                pageLength = 1,
                 autoWidth = FALSE,
                 initComplete = JS(
                   "function(settings, json) {",
