@@ -13,19 +13,34 @@ title: "biodanza"
 library(DT)
 library(readxl)
 library(dplyr)
-datos <- readxl::read_xlsx('data/data_v1.xlsx')%>%
-  select(3:5,7:12,16)%>%
-  rename('link'=10)%>%
-  mutate(link=paste('<a href=',link, 'target="_blank">🔗</a>'))
+library(googlesheets4)
+libro <- 'https://docs.google.com/spreadsheets/d/1uij2vebpcEVqL78y6wCAChQf2meyZ3y9dGgNTe8Zv1o/edit?usp=sharing'
+
+datos <- read_sheet(libro)%>%
+  select(1:5)%>%
+  mutate(Enlaces=paste('<a href=',Enlaces, 'target="_blank">🔗 enlace</a>'))
+
+#datos <- readxl::read_xlsx('data/data_v1.xlsx')%>%
+#  select(3:5,7:12,16)%>%
+#  rename('link'=10)%>%
+#  mutate(link=paste('<a href=',link, 'target="_blank">🔗</a>'))
 
 DT::datatable(datos,
+              rownames = FALSE,
               escape = FALSE,
               extensions = c('FixedHeader','Buttons'),
               filter = list(position = 'top',
                             clear = FALSE),
               options = list(
+                autoWidth = TRUE,
+                    columnDefs = list(
+       list(targets = 0, width = "88px"),  
+                  list(targets = 1, width = "88px"),  
+                  list(targets = 2, width = "112px"),
+                  list(targets = 3, width = "56px"),
+                  list(targets = 4, width = "56px")
+                    ),
                 searchHighlight = TRUE,
-                rownames= FALSE,
                 # fixedHeader = TRUE,
                 # dom = 'tB',
                 buttons = c('copy', 'csv', 'excel'),
@@ -33,7 +48,7 @@ DT::datatable(datos,
                 lengthChange = FALSE,
                 language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json'),
                 pageLength = 1,
-                autoWidth = FALSE,
+                #autoWidth = TRUE,
                 initComplete = JS(
                   "function(settings, json) {",
                   "$(this.api().table().header()).css({'background-color': '#6B91C7', 'color': 'white'});",
