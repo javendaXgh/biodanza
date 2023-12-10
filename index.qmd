@@ -34,9 +34,9 @@ DT::datatable(datos,
               options = list(
                 autoWidth = TRUE,
                     columnDefs = list(
-       list(targets = 0, width = "88px"),  
-                  list(targets = 1, width = "86px"),  
-                  list(targets = 2, width = "110px"),
+       list(targets = 0, width = "60px"),  
+                  list(targets = 1, width = "60px"),  
+                  list(targets = 2, width = "70px"),
                   list(targets = 3, width = "54px"),
                   list(targets = 4, width = "54px")
                     ),
