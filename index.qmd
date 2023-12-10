@@ -1,10 +1,10 @@
 ---
-title: "biodanza"
+title: "Repositorio de Monografías de la EVB"
 ---
 
-**Cualquier comentario o aporte a esta Biblioteca favor escribir al correo:**
+He aquí una "ronda", en este caso de vivencias, aprendizajes, caminos de integración y frutos del trabajo de aquellos egresados de la Escuela Venezolana de Biodanza que nos hicieron llegar la información de sus trabajos monográficos que se ponen a tu disposición para seguir enriqueciendo los fundamentos del Sistema Biodanza en la Escuela Venezolana de Biodanza.
 
-[**escvb20\@gmail.com**](escvb20@gmail.com)
+Cualquier comentario o aporte a esta Biblioteca Virtual, favor escribir al correo: escvb20\@gmail.com
 
 ```{r}
 #| echo: false
@@ -35,10 +35,10 @@ DT::datatable(datos,
                 autoWidth = TRUE,
                     columnDefs = list(
        list(targets = 0, width = "88px"),  
-                  list(targets = 1, width = "88px"),  
-                  list(targets = 2, width = "112px"),
-                  list(targets = 3, width = "56px"),
-                  list(targets = 4, width = "56px")
+                  list(targets = 1, width = "86px"),  
+                  list(targets = 2, width = "110px"),
+                  list(targets = 3, width = "54px"),
+                  list(targets = 4, width = "54px")
                     ),
                 searchHighlight = TRUE,
                 # fixedHeader = TRUE,
