@@ -1,0 +1,20 @@
+/* css styles */
+td{
+  font-size: 14px;
+}
+
+.navbar-logo {
+  width: 50% !important;
+
+}
+.navbar-title{
+  font-size: 14px;
+}
+
+#DataTables_Table_0_wrapper{
+  width: 95% !important;
+}
+
+.menu-text{
+  font-size: 12px;
+}
